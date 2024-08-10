@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_order_form_flower_report_button" model="ir.ui.view">
+        <field name="name">sale.order.form.flower.report.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_report_flower_sale_order)d" string="Print Flower Report" type="action" class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

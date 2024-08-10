@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="flower_template" inherit_id="website_sale.product">
+        <xpath expr="//section[@id='product_detail']" position="inside">
+            <div t-if="product.product_variant_id.is_flower and product.product_variant_id.flower_id">
+                <t t-set="flower" t-value="product.product_variant_id.flower_id"/>
+                <b>Common Name: </b>
+                <span t-out='flower.common_name'/>
+                <br/>
+                <b>Scientific Name: </b>
+                <span t-out='flower.scientific_name'/>
+                <br/>
+                <b>Season Start: </b>
+                <span t-out='flower.season_start'/>
+                <br/>
+                <b>Season End: </b>
+                <span t-out='flower.season_end'/>
+                <br/>
+                <b>Watering Frequency: </b>
+                <span t-out='flower.watering_frequency'/>
+                <br/>
+                <b>Watering Amount: </b>
+                <span t-out='flower.watering_amount'/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
