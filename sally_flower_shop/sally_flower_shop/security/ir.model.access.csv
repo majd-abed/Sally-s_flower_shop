@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sally_flower_shop.access_flower,access_flower,sally_flower_shop.model_flower,base.group_user,1,1,1,1
+sally_flower_shop.access_flower_water,access_flower_water,sally_flower_shop.model_flower_water,base.group_user,1,1,1,1
+access_stock_production_lot_gardener,access_stock_production_lot,model_stock_lot,gardener,1,1,1,0
+access_product_model_gardener,access_product,model_product_product,gardener,1,1,1,0

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="flower_view_tree" model="ir.ui.view">
+        <field name="name">flower.view.tree</field>
+        <field name="model">flower</field>
+        <field name="arch" type="xml">
+            <tree string="Flowers">
+                <field name="common_name" />
+                <field name="season_start" />
+                <field name="season_end" />
+                <field name="watering_frequency" />
+                <field name="watering_amount" />
+            </tree>
+        </field>
+    </record>
+    <menuitem
+        id="flower_menu_root"
+        name="Sally Flower Shop"
+        sequence="10"/>
+    <record id="flower_tree_view_action" model="ir.actions.act_window">
+        <field name="name">Flower</field>
+        <field name="res_model">flower</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+            id="flower_menu"
+            name="List of Flowers"
+            action="flower_tree_view_action"
+            
+            parent="flower_menu_root"
+            sequence="10"/>
+    <record id="flower_product_view_action" model="ir.actions.act_window">
+        <field name="name">Flower</field>
+        <field name="res_model">product.product</field>
+        <field name="context" eval="{'default_is_flower': True}"/>
+        <field name="domain" eval="[('is_flower', '=', True)]"/>
+        <field name="view_mode">kanban,tree,form,activity</field>
+    </record>
+    <menuitem
+            id="flower_product_menu"
+            name="Flowers"
+            action="flower_product_view_action"
+            parent="flower_menu_root"
+            sequence="10"/>
+    <menuitem
+            id="flower_sales"
+            action="flower_product_view_action"
+            
+            parent="sale.product_menu_catalog"
+            sequence="10"/>
+            
+</odoo>

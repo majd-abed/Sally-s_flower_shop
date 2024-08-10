@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data noupdate="1">
+    <record id="gardener" model="res.groups">
+      <field name="name">Gardener</field>
+      <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+  </data>
+  <data noupdate="1">
+    <record id="flower_record_rules" model="ir.rule">
+      <field name="name">Show Flowers</field>
+      <field ref="model_product_product" name="model_id"/>
+      <field name="domain_force">[(1,'=',1)] if user.user_has_groups('sally_flower_shop.gardener') else [('is_flower','=',False)]</field>
+    </record>
+  </data>
+  <data noupdate="1">
+    <record id="gardener_show_flowers" model="ir.rule">
+      <field name="name">Gardener Show Flowers</field>
+      <field ref="model_product_product" name="model_id"/>
+      <field name="groups" eval="[(4, ref('sally_flower_shop.gardener'))]"/>
+      <field name="domain_force">['|',('gardener_ids','=',False),('gardener_ids','in',user.id)]</field>
+    </record>
+  </data>
+</odoo>

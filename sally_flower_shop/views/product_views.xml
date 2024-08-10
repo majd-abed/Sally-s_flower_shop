@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="inherit_product_form_view" model="ir.ui.view">
+		<field name="name">product.product.common.form</field>
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_normal_form_view"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[@name='options']" position="inside">
+				<span class="d-inline-block">
+					<field name="is_flower"/>
+					<label for="is_flower"/>
+				</span>
+			</xpath>
+			<xpath expr="//field[@name='uom_id']" position="after">
+				<group name="related_flower_info" string="FLower Info">
+					<field name="flower_id"/>
+					<field name="sequence_id"/>
+					<field name="gardener_ids" widget="many2many_tags"/>
+				</group>
+			</xpath>
+		</field>
+	</record>
+	<record id="need_waterinng_ribbon_action" model="ir.cron">
+		<field name="name">Check Needs Watering</field>
+		<field name="model_id" ref="model_product_product"/>
+		<field name="state">code</field>
+		<field name="code">model.action_needs_watering()</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">hours</field>
+		<field name="numbercall">-1</field>
+	</record>
+	<record id="weather_data_for_every_warehouse_record" model="ir.cron">
+		<field name="name">Get weather data for every warehouse record</field>
+		<field name="model_id" ref="model_stock_warehouse"/>
+		<field name="state">code</field>
+		<field name="code">model.get_weather_all_warehouses()</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">hours</field>
+		<field name="numbercall">-1</field>
+	</record>
+</odoo>

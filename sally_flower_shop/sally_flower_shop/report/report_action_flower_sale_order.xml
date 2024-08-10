@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_report_flower_sale_order" model="ir.actions.report">
+        <field name="name">Flower Sale Order</field>
+        <field name="model">sale.order</field>
+        <field name="report_name">sally_flower_shop.report_flower_sale_order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="sally_flower_shop.paperformat_flower_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
