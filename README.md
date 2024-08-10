@@ -1,7 +1,3 @@
-Here's a README file template for your Odoo 16 module, **Sally Flower Shop**:
-
----
-
 # Sally's Flower Shop - Odoo 16 Module
 
 ## Overview
